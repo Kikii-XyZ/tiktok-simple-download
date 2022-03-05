@@ -1,4 +1,3 @@
-
 const cors = require("cors")
 const puppeteer = require("puppeteer")
 const fetch = require('node-fetch')
@@ -30,40 +29,40 @@ function download(url) {
 let body = process.argv.slice(2)
 async function tiktok(link) {
     try {
-		if ( body[0] == undefined) {
+        if (body[0] == undefined) {
             console.log("ERROR: missing URL parameter");
-			process.exit()
+            process.exit()
             return;
         } else {
-        const URL = 'https://tikmate.online'
-        const browser = await puppeteer.launch({
-            headless: true
-        });
-        const page = await browser.newPage();
-        await page.goto(URL + '/?lang=id#google_vignette');
-        await page.type("#url", `${link}`);
-        await page.waitForSelector("#send");
-        await page.click('#send', {
-            delay: 300
-        });
-        await page.waitForSelector('#download-block > div > a');
-        let videoUrl = await page.$eval("#download-block > div > a", async (element) => {
-            return element.getAttribute("href")
-        });
-        let source = await page.$eval("#download-section > div > div:nth-child(1) > div.videotikmate.mb-10 > div.videotikmate-middle.center > div > h1 > div", async (element) => {
-            return element.getAttribute("title")
-        });
-        let titles = await page.$eval("#download-section > div > div:nth-child(1) > div.videotikmate.mb-10 > div.videotikmate-middle.center > p", async (element) => {
-            return element.querySelector('span').textContent
-        });
-        const shorts = await shorten(URL + videoUrl)
-        console.log({
-            Username: source,
-            title: titles,
-            videoUrl: shorts
-        })
-        download(shorts)
-		}
+            const URL = 'https://tikmate.online'
+            const browser = await puppeteer.launch({
+                headless: true
+            });
+            const page = await browser.newPage();
+            await page.goto(URL + '/?lang=id#google_vignette');
+            await page.type("#url", `${link}`);
+            await page.waitForSelector("#send");
+            await page.click('#send', {
+                delay: 300
+            });
+            await page.waitForSelector('#download-block > div > a');
+            let videoUrl = await page.$eval("#download-block > div > a", async (element) => {
+                return element.getAttribute("href")
+            });
+            let source = await page.$eval("#download-section > div > div:nth-child(1) > div.videotikmate.mb-10 > div.videotikmate-middle.center > div > h1 > div", async (element) => {
+                return element.getAttribute("title")
+            });
+            let titles = await page.$eval("#download-section > div > div:nth-child(1) > div.videotikmate.mb-10 > div.videotikmate-middle.center > p", async (element) => {
+                return element.querySelector('span').textContent
+            });
+            const shorts = await shorten(URL + videoUrl)
+            console.log({
+                Username: source,
+                title: titles,
+                videoUrl: shorts
+            })
+            download(shorts)
+        }
     } catch (e) {
         console.log(e)
     }
