@@ -1,0 +1,34 @@
+{
+  "name": "tiktok-nowm",
+  "version": "1.0.0",
+  "description": "simple tiktok download with puppeteer",
+  "main": "savefrom.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "kikiixyz",
+  "license": "MIT",
+  "dependencies": {
+    "axios": "^0.26.0",
+    "cheerio": "^1.0.0-rc.10",
+    "cors": "^2.8.5",
+    "jsdom": "^19.0.0",
+    "node-fetch": "^2.6.7",
+    "node-url-shortener": "^2.0.1",
+    "puppeteer": "^13.4.1",
+    "request": "^2.88.2"
+  },
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kikii-XyZ/tiktok-simple-download.git"
+  },
+  "keywords": [
+    "tiktok",
+    "puppeteer"
+  ],
+  "bugs": {
+    "url": "https://github.com/Kikii-XyZ/tiktok-simple-download/issues"
+  },
+  "homepage": "https://github.com/Kikii-XyZ/tiktok-simple-download#readme"
+}
