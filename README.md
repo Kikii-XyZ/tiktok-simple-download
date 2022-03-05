@@ -6,10 +6,3 @@ simple tiktok download with puppeteer
 ```
 $ node tiktok https://www.tiktok.com/@ilhamputrayuda/video/7066670982466931994
 
-/ result
-{
-  Username: 'user2828282828',
-  title: 'ngantuk',
-  videoUrl: 'https://tinyurl.com/y92pfkb4'
-}
-```
