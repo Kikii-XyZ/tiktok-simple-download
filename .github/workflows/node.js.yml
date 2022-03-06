@@ -25,4 +25,4 @@ jobs:
       with:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
-    - run: node tiktok ${github workflow_dispatch.url}
+    - run: node tiktok ${github.workflow_dispatch.url}
